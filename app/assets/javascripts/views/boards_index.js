@@ -8,13 +8,11 @@ TC.Views.BoardsIndex = Backbone.View.extend({
 	
 	initialize: function (options) {
 		this.boards = options.boards;
+		this.listenTo(this.boards, "sync", this.render)
 	},
 	
 	refresh: function() {
-		var view = this;
-		this.boards.fetch({
-			success:function () { view.render(); }
-		})
+		this.boards.fetch();
 	},
 	
 	render: function() {

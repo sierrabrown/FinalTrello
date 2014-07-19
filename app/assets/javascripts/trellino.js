@@ -5,12 +5,15 @@ window.TC = {
   Routers: {},
   initialize: function (){
 		var view = new TC.Views.BoardsIndex( {boards: TC.Collections.boards} )
-		TC.Collections.boards.fetch({
-			success: function () {
-				view.render()
-				$("body").append(view.$el)
-			}
-		});
+		
+		TC.Collections.boards.fetch();
+		$("body").append(view.render().$el)
+		// TC.Collections.boards.fetch({
+// 			success: function () {
+// 				view.render()
+// 				$("body").append(view.$el)
+// 			}
+// 		});
 	}
 };
 
