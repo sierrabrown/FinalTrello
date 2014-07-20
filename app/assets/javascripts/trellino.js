@@ -14,6 +14,8 @@ window.TC = {
 // 				$("body").append(view.$el)
 // 			}
 // 		});
+var newView = new TC.Views.BoardNew();
+$("body").append(newView.render().$el)
 	}
 };
 
