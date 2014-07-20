@@ -1,3 +1,3 @@
-TC.Models.Board = Backbone.Model.extend({
-	urlRoot: "/api/boards"
+window.TC.Models.Board = Backbone.Model.extend({
+	url: "/api/boards"
 });

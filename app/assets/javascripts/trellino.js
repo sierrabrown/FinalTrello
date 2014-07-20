@@ -4,18 +4,20 @@ window.TC = {
   Views: {},
   Routers: {},
   initialize: function (){
-		var view = new TC.Views.BoardsIndex( {boards: TC.Collections.boards} )
+		new TC.Routers.TrellinoRouter();
 		
-		TC.Collections.boards.fetch();
-		$("body").append(view.render().$el)
+		Backbone.history.start({})
+		//var view = new TC.Views.BoardsIndex( {boards: TC.Collections.boards} )
+		
+		//$("body").append(view.render().$el)
 		// TC.Collections.boards.fetch({
 // 			success: function () {
 // 				view.render()
 // 				$("body").append(view.$el)
 // 			}
 // 		});
-var newView = new TC.Views.BoardNew();
-$("body").append(newView.render().$el)
+	//var newView = new TC.Views.BoardNew();
+	//$("body").append(newView.render().$el)
 	}
 };
 

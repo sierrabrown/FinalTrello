@@ -1,4 +1,4 @@
-window.TC.Collections.Lists = Backbone.Collection.extend({
+TC.Collections.Lists = Backbone.Collection.extend({
 	model: TC.Models.List,
 	url: function() {
 		return this.board.url() + "/lists"
