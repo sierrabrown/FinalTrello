@@ -18,8 +18,9 @@ TC.Routers.TrellinoRouter = Backbone.Router.extend({
 	},
 	
 	boardShow: function(id) {
-		var model = TC.Collections.boards.get(id)
-		debugger;
+		// This doesn't work unless you're navigating from the index page
+		var model = TC.Collections.boards.getOrFetch(id);
+		model.lists().fetch()
 		var showView = new TC.Views.BoardShow({model: model});
 		
 		$("body").html(showView.render().$el)

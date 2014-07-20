@@ -2,18 +2,21 @@ module Api
   class ListsController < ApiController
     def index
       @lists = Board.find(params[:board_id]).lists
-      render :index
+      #render json: @lists
+      render "lists/index"
     end
 
     def show
       @list = List.find(params[:id])
-      render partial: "api/lists/list", locals: { list: @list }
+      #render partial: "api/lists/list", locals: { list: @list }
+      render "lists/show"
     end
 
     def create
       @list = List.new(list_params)
       if @list.save
-        render partial: "api/lists/list", locals: { list: @list }
+        #render partial: "api/lists/list", locals: { list: @list }
+        render "lists/show"
       else
         render json: { errors: @list.errors.full_messages }, status: 422
       end

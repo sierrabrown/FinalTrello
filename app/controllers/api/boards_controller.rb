@@ -4,7 +4,7 @@ module Api
       @board = current_user.boards.new(board_params)
 
       if @board.save
-        render json: @board
+        render "boards/show"
       else
         render json: @board.errors.full_messages, status: :unprocessable_entity
       end
@@ -12,23 +12,26 @@ module Api
 
     def destroy
       @board = current_user.boards.find(params[:id])
-      @board.try(:destroy)
-      render json: {}
+      if @board.destroy
+        render "boards/show"
+      else
+        raise "WTF"
+      end
     end
 
     def index
       @boards = current_user.boards
-      render json: @boards
+      render "boards/index"
     end
 
     def show
       @board = Board.includes(:members, lists: :cards).find(params[:id])
 
-      if @board.is_member?(current_user)
-        render :show
-      else
-        render json: ["You aren't a member of this board"], status: 403
-      end
+      #if @board.is_member?(current_user)
+      render 'boards/show'
+      #else
+      #  render json: ["You aren't a member of this board"], status: 403
+      #end
     end
 
     private

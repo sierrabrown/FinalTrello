@@ -1,7 +1,7 @@
 TC.Collections.Lists = Backbone.Collection.extend({
 	model: TC.Models.List,
 	url: function() {
-		return this.board.url() + "/lists"
+		return this.board.url +"/" + this.board.id + "/lists"
 	},
 	
 	initialize: function (models, options) {

@@ -1,0 +1,1 @@
+json.partial!("boards/show", :board => @board)

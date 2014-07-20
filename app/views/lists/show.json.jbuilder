@@ -1,0 +1,1 @@
+json.partial!("lists/show", :list => @list)
