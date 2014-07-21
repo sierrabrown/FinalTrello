@@ -9,7 +9,7 @@ Trellino::Application.routes.draw do
       resources :cards, only: [:index, :show, :create, :update, :destroy]
     end
     
-    #resources :cards
+    resources :cards
     #resources :cards
     # do
       #resources :lists, only: [:index, :show, :create, :update, :destroy]

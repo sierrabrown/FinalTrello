@@ -1,20 +1,13 @@
-Delete  extra files - 
-
-	deleted:    app/views/api/boards/_board.jbuilder
-	deleted:    app/views/api/boards/index.jbuilder
-	deleted:    app/views/api/cards/_card.jbuilder
-	deleted:    app/views/api/cards/index.jbuilder
-	deleted:    app/views/api/lists/_list.jbuilder
-	deleted:    app/views/api/lists/index.jbuilder
-
-on git it's possible they'll fuck things up
-
 
 TODO:
+Install jquery.sortable
+Get it working in the browser for lists
+Get it working in the browser for cards
+Save to database for lists
+Save to database for cards
 
+
+Icebox:
 
 
 Deletions - Routes must be fixed to "urlRoot to allow this."
-
-Order cards by overwriting the default comparator method.
-

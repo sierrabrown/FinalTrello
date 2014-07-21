@@ -1,5 +1,7 @@
 TC.Views.CardShow = Backbone.View.extend({
 	template: JST["cards/show"],
+  
+  className: "panel panel-default",
 	
 	initialize: function (options) {
 		this.card = options.card
