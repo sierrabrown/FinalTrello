@@ -4,14 +4,15 @@ TC.Views.BoardShow = Backbone.View.extend({
 	
 	
 	initialize: function () {
+		this.collection = this.model.lists();
 		this.listenTo(this.model, "sync", this.render),
-		this.listenTo(this.model.lists(), "sync add", this.render)
+		this.listenTo(this.collection, "add", this.render)
 	},
 	
 	render: function() {
 		var renderedContent = this.template( { board: this.model} )		
 		this.$el.html(renderedContent);		
-		this._renderLists(this.model.lists())
+		this._renderLists(this.collection)
 		this._renderNewList()
 		return this;
 	},

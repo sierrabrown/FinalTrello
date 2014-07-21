@@ -5,25 +5,34 @@ TC.Views.ListShow = Backbone.View.extend({
 	
 	initialize: function (options) {
 		this.list = options.list
+		this.collection = this.list.cards()
 		this.listenTo(this.list, "sync", this.render)
-		//this.listenTo(this.list.cards(), "sync add", this.render)
-		//this.listenTo(this.list, "sync", this.render)
-		// this.listenTo(this.model.cards(), "sync add", this.render)
+		this.listenTo(this.collection, "add", this.addCard)
 	},
 	
 	render: function() {
 		var renderedContent = this.template( { list: this.list} )
 		this.$el.html(renderedContent);
-		this.list.cards().fetch();
-		this._renderCards(this.list.cards().list.collection)
+		this._renderCards()
+		this._renderNewCard()
 		return this;
 	},
 	
-	_renderCards: function(cards) {
-		cards.each( function(card) {
-			var cardShowView = new TC.Views.CardShow( { card: card})
-			this.$(".cards").append(cardShowView.render().$el)
+	addCard: function (card) {
+		var view = new TC.Views.CardShow( {
+			card: card
 		})
-
+		this.$(".cards").append(view.render().$el)
+	},
+	
+	_renderCards: function() {
+		//Why do we bind here?
+		this.list.cards().each(this.addCard.bind(this))
+	},
+	
+	_renderNewCard: function() {
+		var view = new TC.Views.CardNew( {list: this.list} )
+		this.$(".card-new").append(view.render().$el)
 	}
+	
 });
