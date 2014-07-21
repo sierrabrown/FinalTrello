@@ -9,17 +9,10 @@ TC.Views.BoardShow = Backbone.View.extend({
 	},
 	
 	render: function() {
-		var renderedContent = this.template( { board: this.model} )
-		
-		this.$el.html(renderedContent);
-		
+		var renderedContent = this.template( { board: this.model} )		
+		this.$el.html(renderedContent);		
 		this._renderLists(this.model.lists())
-		
-		
-		// TODO: Don't like rebuilding the new view on every render
-		//var listNewView = new TC.Views.ListNew( { board: this.model})
-		//this.$(".list-new").html(listNewView.render().$el)
-		
+		this._renderNewList()
 		return this;
 	},
 	
@@ -29,6 +22,11 @@ TC.Views.BoardShow = Backbone.View.extend({
 			this.$(".list-of-lists").append(listShowView.render().$el)
 		})
 
+	},
+	
+	_renderNewList: function() {
+		var newForm = new TC.Views.ListNew( {board: this.model} )
+		this.$(".list-new").append(newForm.render().$el)
 	}
 });
 

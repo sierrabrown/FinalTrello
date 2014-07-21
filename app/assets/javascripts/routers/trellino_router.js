@@ -23,6 +23,15 @@ TC.Routers.TrellinoRouter = Backbone.Router.extend({
 		model.lists().fetch()
 		var showView = new TC.Views.BoardShow({model: model});
 		
-		$("body").html(showView.render().$el)
-	}
+		
+		this._swapView(showView)
+		//$("body").html(showView.render().$el)
+	},
+	
+  _swapView: function (view) {
+    this.currentView && this.currentView.remove();
+    this.currentView = view;
+    // TODO: Save jQuery object for #main to instance variable in initialize.
+    $('body').html(view.render().$el);
+  }
 })
