@@ -1,0 +1,1 @@
+json.partial!("cards/show", :card => @card)
