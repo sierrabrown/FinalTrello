@@ -9,12 +9,12 @@ TC.Routers.TrellinoRouter = Backbone.Router.extend({
 		var view = new TC.Views.BoardsIndex( {boards: TC.Collections.boards} )
 		
 		TC.Collections.boards.fetch();
-		$("body").html(view.render().$el)
+		$("#content").html(view.render().$el)
 	},
 	
 	boardNew: function () {
 		var newView = new TC.Views.BoardNew();
-		$("body").html(newView.render().$el)
+		$("#content").html(newView.render().$el)
 	},
 	
 	boardShow: function(id) {
@@ -32,6 +32,6 @@ TC.Routers.TrellinoRouter = Backbone.Router.extend({
     this.currentView && this.currentView.remove();
     this.currentView = view;
     // TODO: Save jQuery object for #main to instance variable in initialize.
-    $('body').html(view.render().$el);
+    $("#content").html(view.render().$el);
   }
 })

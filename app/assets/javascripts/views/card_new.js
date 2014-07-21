@@ -22,9 +22,8 @@ TC.Views.CardNew = Backbone.View.extend({
 		var params = $(event.currentTarget).serializeJSON().card;
 		
 		var card = new TC.Models.Card(params)
-		debugger;
 		card.save({}, {
-			success: function() {view.list.cards().add(list)}
+			success: function() {view.list.cards().add(card)}
 		})
 	}
 })

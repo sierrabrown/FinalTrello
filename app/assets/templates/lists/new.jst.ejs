@@ -1,7 +1,9 @@
+
+<h4>Create a new list:</h4>
 <form>
 <input type="hidden" name="list[board_id]" value="<%=board.escape('id')%>">
-<input type="text" name="list[rank]">
-<input type="text" name="list[title]">
+<label>Title:<input type="text" name="list[title]"></label>
+<label>Rank:<input type="text" name="list[rank]"></label>
 
 <input type="submit">
 
