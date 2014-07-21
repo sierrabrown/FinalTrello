@@ -8,3 +8,14 @@ Delete  extra files -
 	deleted:    app/views/api/lists/index.jbuilder
 
 on git it's possible they'll fuck things up
+
+
+TODO:
+
+
+
+Add a button to delete the board.
+
+Order cards by overwriting the default comparator method.
+
+Add the ability to delete cards for each list. Use the JQuery hover event to get this effect.

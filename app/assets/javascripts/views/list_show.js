@@ -14,7 +14,7 @@ TC.Views.ListShow = Backbone.View.extend({
 		var renderedContent = this.template( { list: this.list} )
 		this.$el.html(renderedContent);
 		this._renderCards()
-		this._renderNewCard()
+		//this._renderNewCard()
 		return this;
 	},
 	

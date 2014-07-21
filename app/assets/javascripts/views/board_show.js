@@ -13,7 +13,7 @@ TC.Views.BoardShow = Backbone.View.extend({
 		var renderedContent = this.template( { board: this.model} )		
 		this.$el.html(renderedContent);		
 		this._renderLists(this.collection)
-		this._renderNewList()
+		//this._renderNewList()
 		return this;
 	},
 	
