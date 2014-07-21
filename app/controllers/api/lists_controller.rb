@@ -32,10 +32,14 @@ module Api
       end
     end
 
+    #Not tested yet
     def destroy
-      List.find(params[:id]).try(:destroy)
-      render json: {}
+      @list = Post.find(params[:id])
+      @list.destroy if @list
+      render :json => {}
     end
+    
+    
 
     private
     def list_params

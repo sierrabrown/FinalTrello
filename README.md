@@ -14,8 +14,7 @@ TODO:
 
 
 
-Add a button to delete the board.
+Deletions - Routes must be fixed to "urlRoot to allow this."
 
 Order cards by overwriting the default comparator method.
 
-Add the ability to delete cards for each list. Use the JQuery hover event to get this effect.

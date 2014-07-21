@@ -9,14 +9,13 @@ module Api
         render json: @board.errors.full_messages, status: :unprocessable_entity
       end
     end
-
+    
+    #Not tested yet
     def destroy
-      @board = current_user.boards.find(params[:id])
-      if @board.destroy
-        render "boards/show"
-      else
-        raise "WTF"
-      end
+      @board = Board.find(params[:id])
+      @board.destroy if @board
+      @boards = current_user.boards
+      render "boards/index"
     end
 
     def index

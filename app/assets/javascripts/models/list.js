@@ -1,5 +1,5 @@
 TC.Models.List = Backbone.Model.extend({
-	url: "api/lists",
+	urlRoot: "api/lists",
 	
   cards: function () {
     if(!this._cards) {
