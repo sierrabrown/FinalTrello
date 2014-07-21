@@ -19,6 +19,9 @@ TC.Views.BoardsIndex = Backbone.View.extend({
 	render: function() {
 		var renderedContent = this.template({ boards: this.boards });
 		this.$el.html(renderedContent);
+		
+		var boardNew = new TC.Views.BoardNew();
+		this.$(".board-new").append(boardNew.render().$el)
 		return this;
 	},
 	

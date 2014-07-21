@@ -2,11 +2,8 @@ Board Show Page
 
 <%= board.get('title') %>
 
-<ul>
-<% board.lists().each( function(list) {%>
-	<li><%= list.get('title') %></li>
-<% }) %>
-<ul>
-<a href="#/">Back to Index</a>
+<div class = "list-of-lists"></div>
 
 <div class = "list-new"></div>
+
+<a href="/#">Back to index</a?
