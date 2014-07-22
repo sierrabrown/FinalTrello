@@ -2,7 +2,20 @@ TC.Views.BoardShow = Backbone.View.extend({
 	
 	template: JST["boards/show"],
 	
+	events: {
+	  'click #showForm': 'dialogBox'
+	},
+  
 	
+  dialogBox: function() {
+    $( "#newForm" ).dialog({
+      modal: true,
+      height: 300,
+      width: 400,
+      backgroundcolor: 'red',
+    });
+  },
+  
 	initialize: function () {
 		this.collection = this.model.lists();
 		this.listenTo(this.model, "sync", this.render),
@@ -12,25 +25,34 @@ TC.Views.BoardShow = Backbone.View.extend({
 	render: function() {
 		var renderedContent = this.template( { board: this.model} )		
 		this.$el.html(renderedContent);	
-		this._renderLists(this.collection)
-    this.$(".list-of-lists").sortable()
-    this.$(".cards").sortable()
-		this._renderNewList()
+		this._renderLists(this.collection);
+    this._sortIt();
+		this._renderNewList();
 		return this;
 	},
 	
 	_renderLists: function(lists) {
 		lists.each( function(list) {
 			var listShowView = new TC.Views.ListShow( { list: list})	
-			this.$(".list-of-lists").append(listShowView.render().$el)
+      
 		})
-
 	},
 	
 	_renderNewList: function() {
 		var newForm = new TC.Views.ListNew( {board: this.model} )
 		this.$("#newForm").append(newForm.render().$el)
-	}
+	},
+  
+  
+  _sortIt: function() {
+    this.$(".list-of-lists").sortable({
+      start: function(event, ui) {
+        debugger;
+      }
+    })
+    this.$(".cards").sortable() 
+  }
+  
 });
 
 // 1. Initiate board fetch

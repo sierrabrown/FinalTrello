@@ -2,7 +2,6 @@ TC.Views.ListShow = Backbone.View.extend({
 	
 	template: JST["lists/show"],
 	className: "list well well-md",
-	
 	initialize: function (options) {
 		this.list = options.list
 		this.collection = this.list.cards()
