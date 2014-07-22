@@ -32,9 +32,10 @@ TC.Views.BoardShow = Backbone.View.extend({
 	},
 	
 	_renderLists: function(lists) {
+		var that = this;
 		lists.each( function(list) {
-			var listShowView = new TC.Views.ListShow( { list: list})	
-      
+			var listShowView = new TC.Views.ListShow( { list: list})
+      that.$("#all-the-lists").append(listShowView.render().$el)
 		})
 	},
 	
@@ -45,12 +46,8 @@ TC.Views.BoardShow = Backbone.View.extend({
   
   
   _sortIt: function() {
-    this.$(".list-of-lists").sortable({
-      start: function(event, ui) {
-        debugger;
-      }
-    })
-    this.$(".cards").sortable() 
+     this.$("#all-the-lists").sortable()
+     this.$(".cards").sortable()
   }
   
 });
